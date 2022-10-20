@@ -1,0 +1,248 @@
+{% extends 'basic.html' %}
+{% block title%} HOME {% endblock %}
+<script src="https://code.jquery.com/jquery-3.5.1.js" xmlns:background-image="http://www.w3.org/1999/xhtml"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+{%block css%}
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+.container
+{
+display:grid;
+}
+.slider{
+  max-width: 1100px;
+  display: flex;
+}
+.slider .card{
+  flex: 1;
+  margin: 0 10px;
+  background: #fff;
+}
+.slider .card img{
+  height: 75%;
+  width: 100%;
+
+}
+.card .card-body .btn a{
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.card .card-body .btn a:hover{
+  transform: scale(0.9);
+}
+.site-main .subscribe-us-area .subscribe{
+    background:url(subscribe-bg.png)no-repeat;
+    background-position: center;
+    padding:10rem 0;
+    margin: 3rem auto;
+
+}
+
+.site-main .subscribe-us-area .subscribe .subscribe-title h4{
+    font-family: normal 700 30px/30px var(--roboto);
+    color: whitesmoke;
+}
+
+.site-main .subscribe-us-area .subscribe .subscribe-title p{
+    color: whitesmoke;
+    padding: 1rem 4rem;
+}
+
+
+.site-main .subscribe-us-area .subscribe form .input-textbox input{
+
+    width: 400px;
+    padding: 1.5rem 1rem;
+    border: 1px solid whitesmoke;
+    background: transparent;
+    color: white;
+    font-family:normal 500 17px/20px var(--roboto);
+}
+
+.site-main .subscribe-us-area .subscribe form .input-textbox input::placeholder{
+    color:whitesmoke;
+
+}
+
+.site-main .subscribe-us-area .subscribe form .btn-submit button{
+    background: whitesmoke;
+    color: #000;
+    padding: .7rem 2rem;
+}
+/* Subscribe Me */
+/* Footer Area */
+footer.footer-area{
+    padding: 5rem 0;
+    background: url(../img/footer-bg.png)no-repeat;
+}
+
+footer.footer-area .social h5{
+    font-family:normal 500 23px/30px var(--roboto);
+}
+
+footer.footer-area .social a > i{
+    font-size: 22px;
+    padding: 2rem;
+    color: var(--border-color);
+}
+
+footer.footer-area .social a:hover > i{
+    color: var(--primary-color);
+}
+/* Footer Area */
+
+{%endblock%}
+
+
+{% block body%}
+{%load static %}
+
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="6"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src='{% static "blogimg/blog1.jpg" %}' class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src='{% static "blogimg/blog2.jpg" %}'class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src='{% static "blogimg/blog3.jpg" %}' class="d-block w-100" alt="...">
+    </div>
+      <div class="carousel-item">
+      <img src='{% static "blogimg/blog4.jpg" %}' class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src='{% static "blogimg/blog5.jpg" %}' class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src='{% static "blogimg/blog6.jpg" %}' class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
+</div>
+
+<div class="container my-3">
+   <h3 class="">Blog Categories</h3>
+<div class="slider owl-carousel">
+     <!--card1-->
+  <div class="card" style="width: 18rem;">
+  <img src='{% static "blogimg/blog5.jpg" %}' class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title" >Travel Blog</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="/blog" class="btn btn-primary">Go To TravelBlog</a>
+  </div>
+</div>
+  <!--card2-->
+  <div class="card" style="width: 18rem;">
+  <img src='{% static "blogimg/blog5.jpg" %}' class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Food Blog</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="/blog" class="btn btn-primary">Go To TravelBlog</a>
+  </div>
+</div>
+  <!--card3-->
+  <div class="card" style="width: 18rem;">
+  <img src='{% static "blogimg/blog5.jpg" %}' class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Study Blog</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="/blog" class="btn btn-primary">Go To StudyBlog</a>
+  </div>
+</div>
+
+</div><!--owl closed-->
+</div><!--container closed-->
+<main class="site-main">
+<section class="subscribe-us-area" id="blog">
+<div class="container subscribe"style="background-image:url('{% static "blogimg/subscribe-bg.png" %}')">
+  <div class="row">
+    <div class="col-lg-12 text-center subscribe-title">
+      <h4 class="text-uppercase">Get Updates</h4>
+      <p class="para"></p>
+    </div>
+  </div>
+
+  <div class="d-sm-flex justify-content-center">
+    <form class="w-50">
+      <div class="row d-flex flex-row flex-wrap">
+        <div class="col input-textbox">
+         <input type="text" id="textmail" class="form-control" placeholder="Email">
+        </div>
+        <div class="col">
+          <div class="btn-submit">
+            <button type="submit" class="btn btn-success float-right">Contact</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</section>
+</main>
+<footer class="footer-area" id="contact" style="background-image:'{% static "blogimg/footer-bg.png" %}'">
+  <div class="container">
+    <div class="">
+     <div class="site-logo text-center py-4">
+      <a href="#">
+        <img src='{% static "blogimg/logo.jpg" %}'  alt="logo">
+      </a>
+     </div>
+     <div class="social text-center">
+       <h5 class="text-uppercase">Follow Me</h5>
+       <a href="https://www.facebook.com/rajat.mathur.33821" target="_blank"><i class="fab fa-facebook"></i></a>
+       <a href="https://www.instagram.com/rajat_rkm/" target="_blank"><i class="fab fa-instagram"></i></a>
+       <a href="https://github.com/rajat-rkm" target="_blank"><i class="fab fa-github"></i></a>
+       <a href="https://www.linkedin.com/in/rajat-mathur-765376180/"><i class="fab fa-linkedin"></i></a>
+     </div>
+     <div class="copyrights text-center">
+       <p class="para">
+        Copyright &#169 All rights are reserved| website made by
+        <strong>Rajat Mathur</strong>
+       </p>
+     </div>
+  </div>
+</div>
+</footer>
+
+{% endblock %}
+
+{%block js%}
+
+      $(".slider").owlCarousel({
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 2000, //2000ms = 2s;
+        autoplayHoverPause: true,
+        navigation : true
+      });
+{% endblock %}

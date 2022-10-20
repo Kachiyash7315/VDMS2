@@ -1,0 +1,51 @@
+{% extends 'courses/base.html' %}
+{% load course_custom_tags %}
+{% block title %}Courses
+{% endblock %}
+{% block content %}
+<style>
+   .price{
+   font-size : 20px;
+</style>
+<div class="container-fluid">
+   <br>
+   <hr>
+   </br>
+
+<h1 style="text-align: center;"><b>Our <span style="font-family:cursive;color:blue;">Courses</span></b></h1>
+   <hr>
+   <div class="row">
+      {% for c in courses %}
+      <div class="col mx-auto">
+         <div class="card mx-auto" style="width: 18rem;">
+            <img class="card-image-top" src="{{c.thumbnail.url}}" alt="Card image cap">
+            <div class="card-body">
+               <h5 class="card-title">{{c.name}}</h5>
+               <p class="card-text">
+               <p>Save {{c.discount}}%</p>
+               <p class="price"> <del>{{c.price|rupee}}</del>
+                  &nbsp;
+                  <span>₹ {% cal_sellprice c.price c.discount as value%}{{value}}</span>
+               </p>
+               </p>
+            </div>
+            <div class="card-footer p-0">
+               {% is_enrolled request c as enrolled%}
+               <div class="row no-gutters">
+                  {% if enrolled %}
+                  <iframe src="https://giphy.com/embed/WV3dGPzJsvcB9yp5iS" width="140" height="35" frameBorder="0"  allowFullScreen></iframe>
+                  <div class="col border-right"><a href="/course/{{c.slug}}" class="btn btn-light btn-block">Start Course</a></div>
+                  {% else %}
+                  <div class="col border-right"><a href="/courses/checkout/{{c.slug}}" class="btn btn-light btn-block">Enroll Now</a></div>
+                  <div class="col"><a href="/courses/course/{{c.slug}}" class="btn btn-light btn-block">Show More</a></div>
+                  {% endif %}
+               </div>
+            </div>
+         </div>
+         &nbsp;
+         &nbsp;
+      </div>
+      {% endfor %}
+   </div>
+</div>
+{% endblock %}

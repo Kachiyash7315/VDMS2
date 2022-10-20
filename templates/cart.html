@@ -1,10 +1,48 @@
-
-<h1>Welcome User</h1>
+<html>
+<head>
+<title><h1>Welcome User</h1></title>
 {% extends "base.html" %}
 {% block content %}
 
-
-
+<style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+    
+    li {
+      float: left;
+    }
+    
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    li a:hover:not(.active) {
+      background-color: #111;
+    }
+    
+    .active {
+      background-color: #04AA6D;
+    }
+    </style>
+    
+</head>
+<body>
+<ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="/blog">Blogs</a></li>
+    <li><a href="/courses">Academic</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li style="float:right"><a class="active" href="#about">About</a></li>
+</ul>
 <div class="container mt-5 pt-4">
 
     <div class="col-6 mx-auto">
@@ -41,5 +79,6 @@
 
 </div>
 
-
+</body>
 {% endblock %}
+</html>

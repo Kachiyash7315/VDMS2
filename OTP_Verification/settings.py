@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+from django.contrib.messages import constants as messages
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -30,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
+    'blogapp.apps.BlogappConfig',
+    'home.apps.HomeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cart',
     'accounts',
+    'courses',
+    'notes',
 ]
 
 MIDDLEWARE = [
@@ -116,7 +122,18 @@ API_KEY = '381747AULNlwx4EIIS631743d4P1'
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    '/var/www/static/',
+]
 
+MESSAGE_TAGS = {
+    messages.ERROR:'danger',
+    messages.SUCCESS:'success',
+    messages.WARNING:'warning',
+    messages.INFO:'info',
+
+}
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -126,6 +143,28 @@ ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR,'static')   #yeh doubt hai
 
+#media root set kiya hai taki image le sake ya store krne
+MEDIA_ROOT= os.path.join(BASE_DIR, "media")
+MEDIA_URL="/media/"
+
+
+
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')//changes now
+# KEY_ID = "rzp_test_ujzmXAHVU82Hdd"
+# KEY_SECRET = "uX2zOySPTiNtbIPEO6u3fUsZ"
+KEY_ID = "rzp_test_OFjIzbbR7DpSlC"
+KEY_SECRET = "4zUmB1SWcEdkvBtEigCr8iZm"
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'yash_kachi@moderncoe.edu.in'
+EMAIL_HOST_PASSWORD = 'Archana7315'
 django_heroku.settings(locals())

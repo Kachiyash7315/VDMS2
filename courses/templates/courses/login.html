@@ -1,0 +1,23 @@
+{% extends 'courses/base.html' %}
+{% load course_custom_tags %}
+{% block title %}Sign Up
+{% endblock %}
+{% block content %}
+</br>
+</br>
+</br>
+</br>
+<div class="container-fluid">
+<h1>Login Page</h1>
+    <hr>
+    <div>
+        <form method="post" action="/courses/login"> {% csrf_token %}
+            {{form.as_p}}
+
+        <input type="submit" value="Login"></form>
+    </div>
+    <a class="nav-link" href="/courses/reset_password">Reset Password</a>
+
+</div>
+{% endblock %}
+

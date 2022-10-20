@@ -9,5 +9,7 @@ urlpatterns = [
     path('otp/', otp, name="otp"),
     path('login-otp/', login_otp, name="login_otp"),
     path('cart', cart, name="cart"),
+    
+
 
 ]
